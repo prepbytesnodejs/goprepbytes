@@ -30,6 +30,18 @@ func arithemeticmodulus(a int, b int) (int, int, int) {
 // Is the starting point of your application
 func main() {
 	/*
+		var (
+			a,
+			b,
+			c int
+		)
+		a, b, c = arithemeticmodulus(6, 2)
+	*/
+
+	a, b, c := arithemeticmodulus(6, 2)
+
+	fmt.Println(a, b, c)
+	/*
 
 		sum(3, 4) // function call
 
