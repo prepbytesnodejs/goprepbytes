@@ -77,7 +77,7 @@ func main() {
 
 	fmt.Println("Enter your name")
 
-	fmt.Scan(&user)
+	//fmt.Scanf("")
 
 	fmt.Println("Hello", user)
 
