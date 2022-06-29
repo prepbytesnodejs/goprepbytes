@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // function to return multiple values is go
 
@@ -37,60 +35,90 @@ func main() {
 		)
 		a, b, c = arithemeticmodulus(6, 2)
 	*/
+	/*
+		a, b, c := arithemeticmodulus(6, 2)
 
-	a, b, c := arithemeticmodulus(6, 2)
+		fmt.Println(a, b, c)
+		/*
 
-	fmt.Println(a, b, c)
+			sum(3, 4) // function call
+
+			result := subtract(8, 9)
+
+			d, m := arithemetic(10, 2) // it returns two values
+			_, q, s := arithemeticmodulus(9, 2)
+
+			fmt.Println(q, s)
+
+			fmt.Println(d, m)
+
+			fmt.Println(result)
+			/*
+				//fmt.Println("Hello Mom !!!!")
+
+				// variable declaration
+				var age int //only variable declaration
+				age = 20
+
+				fmt.Println(age)
+
+				// shorthand variable decalaration
+				var x int //delare
+
+				x = 9 // assignments
+
+				fmt.Println(x)
+
+				y := "hello world" // decalaration and assignment at the same place
+				fmt.Println(y)
+
+				// const variable
+				//var name string = "john"
+				//name = "joe" // this is not possible because of const keyword
+
+				//fmt.Println(name)
+	*/
 	/*
 
-		sum(3, 4) // function call
+		// Taking user input in go
 
-		result := subtract(8, 9)
+		var user string
 
-		d, m := arithemetic(10, 2) // it returns two values
-		_, q, s := arithemeticmodulus(9, 2)
+		fmt.Println(&user)
 
-		fmt.Println(q, s)
+		fmt.Println("Enter your name")
 
-		fmt.Println(d, m)
+		//fmt.Scanf("")
 
-		fmt.Println(result)
-		/*
-			//fmt.Println("Hello Mom !!!!")
-
-			// variable declaration
-			var age int //only variable declaration
-			age = 20
-
-			fmt.Println(age)
-
-			// shorthand variable decalaration
-			var x int //delare
-
-			x = 9 // assignments
-
-			fmt.Println(x)
-
-			y := "hello world" // decalaration and assignment at the same place
-			fmt.Println(y)
-
-			// const variable
-			//var name string = "john"
-			//name = "joe" // this is not possible because of const keyword
-
-			//fmt.Println(name)
+		fmt.Println("Hello", user)
 	*/
+	//fmt.Println(takeInputWithSpaces())
 
-	// Taking user input in go
+	//dataTypeGo()
+	//a := checkCondition(3)
 
-	var user string
+	//fmt.Println(a)
+	//simpleLoop()
 
-	fmt.Println(&user)
+	//whileLoop()
 
-	fmt.Println("Enter your name")
+	//forEach()
 
-	//fmt.Scanf("")
+	//infiniteLoop()
+	//arrays()
 
-	fmt.Println("Hello", user)
+	//sliceS := []int{9, 9}
+
+	array := [2]int{88, 77}
+
+	fmt.Println(array)
+
+	//fmt.Println(sliceS)
+
+	//modifySlice(sliceS)
+
+	//fmt.Println(sliceS)
+	modifyArray(array)
+	fmt.Println(array)
 
 }
