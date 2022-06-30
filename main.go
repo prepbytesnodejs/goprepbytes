@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	_ "goprepbytes/package2/package2" // this syntax is used to import pacakges for side effects only
+	_ "goprepbytes/pointers"
+	"goprepbytes/rangego"
+	_ "goprepbytes/structs"
+)
 
 // function to return multiple values is go
 
@@ -109,16 +115,107 @@ func main() {
 
 	//sliceS := []int{9, 9}
 
-	array := [2]int{88, 77}
+	//array := [2]int{88, 77}
 
-	fmt.Println(array)
+	//fmt.Println(array)
 
 	//fmt.Println(sliceS)
 
 	//modifySlice(sliceS)
 
 	//fmt.Println(sliceS)
-	modifyArray(array)
-	fmt.Println(array)
+	//modifyArray(array)
+	//fmt.Println(array)
+	//typeConversion()
+	//mapMethod()
+
+	//var i int = 1
+	//var j float32 = 1
+	//k := i == j
+
+	//package2.Foo()
+
+	//pointers.Pointers()
+
+	//a := 9
+	//pointers.TakePointer(&a)
+
+	//fmt.Println(a)
+
+	//fmt.Println(*pointers.ReturnsPointer())
+
+	// one is make and one is new
+	// new keyword is used to create slices ,structs  // new keyword returns a pointer
+	// make keyword is used to create maps and chan,slice
+
+	//slc2 := make([]int, 10)
+
+	//slcPointer := new([]int)
+
+	//pointers.PointerToSlice(slcPointer)
+
+	//We have to instantiate the struct first
+	/*
+		sobj := structs.Student{
+			Name:            "John",
+			Age:             20,
+			IsComingToClass: true,
+		} //instantiating the struct
+
+		fmt.Println(sobj.Name, sobj.Age, sobj.IsComingToClass)
+		//structs.GetName() // calling a function
+		//sobj.GetName()    //calling a method
+
+		emptyStruct := structs.Student{
+			Name: "Johnny Walker",
+		}
+
+		emptyStruct.AssignValues("John cena")
+
+		fmt.Println(emptyStruct.Name)
+	*/
+
+	// value receiver
+	/*
+		emptyStruct := structs.Student{}
+
+		emptyStruct.AssignValues("John cena")
+
+		fmt.Println(emptyStruct) ///
+
+		struct2 := structs.Student{}
+
+		struct2.Somemethod("Random name")
+
+		fmt.Println(struct2) ///
+	*/
+
+	slc := []rangego.Student{} // A slice of custom type
+
+	for i := 0; i < 4; i++ {
+		slc = append(slc, rangego.SliceOfStruct("john", 88))
+
+	}
+
+	// Range operator // Its kind of enhanced for loop
+
+	// forEach loop from other programming languages
+
+	for i, val := range slc {
+		fmt.Println(i, val)
+
+	}
+
+	//iterate over a map
+
+	mp := make(map[string]string)
+	mp["name"] = "John"
+	mp["Location"] = "Pune"
+	mp["Pincode"] = "110001"
+	mp["Country"] = "India"
+
+	for key, val := range mp {
+		fmt.Println(key, val)
+	}
 
 }
