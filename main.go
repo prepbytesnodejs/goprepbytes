@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"goprepbytes/goconcurrency"
 	_ "goprepbytes/package2/package2" // this syntax is used to import pacakges for side effects only
 	_ "goprepbytes/pointers"
-	"goprepbytes/rangego"
+	_ "goprepbytes/rangego"
 	_ "goprepbytes/structs"
+	"sync"
 )
 
 // function to return multiple values is go
@@ -177,45 +179,60 @@ func main() {
 
 	// value receiver
 	/*
-		emptyStruct := structs.Student{}
+			emptyStruct := structs.Student{}
 
-		emptyStruct.AssignValues("John cena")
+			emptyStruct.AssignValues("John cena")
 
-		fmt.Println(emptyStruct) ///
+			fmt.Println(emptyStruct) ///
 
-		struct2 := structs.Student{}
+			struct2 := structs.Student{}
 
-		struct2.Somemethod("Random name")
+			struct2.Somemethod("Random name")
 
-		fmt.Println(struct2) ///
+			fmt.Println(struct2) ///
+
+
+		slc := []rangego.Student{} // A slice of custom type
+
+		for i := 0; i < 4; i++ {
+			slc = append(slc, rangego.SliceOfStruct("john", 88))
+
+		}
+
+
+		// Range operator // Its kind of enhanced for loop
+
+		// forEach loop from other programming languages
+
+		for i, val := range slc {
+			fmt.Println(i, val)
+
+		}
+
+		//iterate over a map
+		/*
+			mp := make(map[string]string)
+			mp["name"] = "John"
+			mp["Location"] = "Pune"
+			mp["Pincode"] = "110001"
+			mp["Country"] = "India"
+
+			for key, val := range mp {
+				fmt.Println(key, val)
+			}
 	*/
 
-	slc := []rangego.Student{} // A slice of custom type
+	var waitGroup sync.WaitGroup //it groups all over go routines and
+	// we can wait inside the main routine till all our all the go routines
+	// have finished execution
 
-	for i := 0; i < 4; i++ {
-		slc = append(slc, rangego.SliceOfStruct("john", 88))
-
+	for i := 0; i < 5; i++ {
+		go goconcurrency.GoRoutine(i, &waitGroup)
+		//go goconcurrency.GoRoutine2(i)
 	}
 
-	// Range operator // Its kind of enhanced for loop
-
-	// forEach loop from other programming languages
-
-	for i, val := range slc {
-		fmt.Println(i, val)
-
-	}
-
-	//iterate over a map
-
-	mp := make(map[string]string)
-	mp["name"] = "John"
-	mp["Location"] = "Pune"
-	mp["Pincode"] = "110001"
-	mp["Country"] = "India"
-
-	for key, val := range mp {
-		fmt.Println(key, val)
-	}
+	//time.Sleep(time.Second)
+	waitGroup.Wait()
+	fmt.Println("Main exited")
 
 }
