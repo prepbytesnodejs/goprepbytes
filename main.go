@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"goprepbytes/goconcurrency"
+	"goprepbytes/filereading"
 	_ "goprepbytes/package2/package2" // this syntax is used to import pacakges for side effects only
 	_ "goprepbytes/pointers"
 	_ "goprepbytes/rangego"
 	_ "goprepbytes/structs"
-	"sync"
+	"log"
 )
 
 // function to return multiple values is go
@@ -221,18 +221,32 @@ func main() {
 				fmt.Println(key, val)
 			}
 	*/
+	/*
 
-	var waitGroup sync.WaitGroup //it groups all over go routines and
-	// we can wait inside the main routine till all our all the go routines
-	// have finished execution
+		var waitGroup sync.WaitGroup //it groups all over go routines and
+		// we can wait inside the main routine till all our all the go routines
+		// have finished execution
 
-	for i := 0; i < 5; i++ {
-		go goconcurrency.GoRoutine(i, &waitGroup)
-		//go goconcurrency.GoRoutine2(i)
+		for i := 0; i < 5; i++ {
+			go goconcurrency.GoRoutine(i, &waitGroup)
+			//go goconcurrency.GoRoutine2(i)
+		}
+
+		//time.Sleep(time.Second)
+		waitGroup.Wait()
+		fmt.Println("Main exited")
+	*/
+
+	data, err := filereading.ReadFile("file.txt")
+
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	//time.Sleep(time.Second)
-	waitGroup.Wait()
-	fmt.Println("Main exited")
+	err = filereading.WriteFile(data, "b.txt")
+	if err != nil {
+		fmt.Println(err)
+
+	}
 
 }
